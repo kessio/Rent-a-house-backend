@@ -5,19 +5,18 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_with(resource, options={})
   render json: {
-    status: {
-      code: 200,
-      message: 'User Signed In Successfully',
-      data: current_user
-    }, status: :ok
-  }
+    status: 200,
+    message: 'User Signed In Successfully',
+    data: resource
+  },status: :ok
+
   end
 
   def respond_to_on_destroy
     #if request.headers['Authorization'].present?
 
       jwt_payload = JWT.decode(request.headers['Authorization'].split.last, ENV.fetch('DEVISE_JWT_SECRET')).first
-
+       
       current_user = User.find(jwt_payload['sub'])
 
       if current_user
