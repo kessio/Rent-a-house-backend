@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  respond_with(resource, options={})
+  def respond_with(resource, options={})
   render json: {
     status: {
       code: 200,
@@ -11,9 +11,10 @@ class Users::SessionsController < Devise::SessionsController
       data: current_user
     }, status: :ok
   }
+  end
 
   def respond_to_on_destroy
-    if request.headers['Authorization'].present?
+    #if request.headers['Authorization'].present?
 
       jwt_payload = JWT.decode(request.headers['Authorization'].split.last, ENV.fetch('DEVISE_JWT_SECRET')).first
 
@@ -23,7 +24,7 @@ class Users::SessionsController < Devise::SessionsController
         render json: {
           status: 200,
           message: 'Signed Out Successfully'
-        }, status: ok
+        }, status: :ok
 
         else 
           render json: {
@@ -31,7 +32,7 @@ class Users::SessionsController < Devise::SessionsController
             message: 'User has no active session'
           }, status: :unauthorized
         end
-    end
   end
+
   
 end
