@@ -1,4 +1,5 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
+
   respond_to :json
   private
 
@@ -11,9 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       }, status: :ok 
     else
       render json: {
-        status: { message: 'User not created Successfully',
-        error: resource.errors.full_messages}, status: :unprocessable_entity
-      }
+        status: 422,
+        message: "Signed up failure. #{resource.errors.full_messages.to_sentence}"
+      }, status: :unprocessable_entity
+      
     end
   end  
 end
