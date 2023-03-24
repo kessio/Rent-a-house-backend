@@ -1,10 +1,10 @@
-class HousesController < ApplicationController
+class Api::V1::HousesController < ApplicationController
     def create
         @house = House.new(house_params)
         if @house.save
-          render json: @house, status: :created
+          render json: { status: 'success', message: 'House created successfully' }, status: :created
         else
-          render json: @house.errors, status: :unprocessable_entity
+          render json: { status: 'error', message: 'Failed to create house', errors: @house.errors.full_messages }, status: :unprocessable_entity
         end
       end
     
