@@ -24,6 +24,9 @@ default: &default
   password: Crypto@50
  
 
+  username: postgres
+  password: 12345
+
 development:
   <<: *default
   database: Rent_a_house_backend_development
