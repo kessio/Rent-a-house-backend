@@ -210,7 +210,6 @@ DEPENDENCIES
   devise
   devise-jwt
   dotenv-rails
-  devise-jwt
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors

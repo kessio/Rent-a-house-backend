@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> abd5bab1f789f2f5218bb761fca67bc9324ad7fd
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_021929) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_132603) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "house_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_favorites_on_house_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "price"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_houses_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,17 +46,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_021929) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-<<<<<<< HEAD
-  create_table "houses", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.decimal "price"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
->>>>>>> abd5bab1f789f2f5218bb761fca67bc9324ad7fd
   end
 
+  add_foreign_key "favorites", "houses"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "houses", "users"
 end
