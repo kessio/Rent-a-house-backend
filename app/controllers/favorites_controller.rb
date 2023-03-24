@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
 
+    before_action :authenticate_user!
+    
     def create
         @house = House.find(params[:house_id])
         current_user.favorite_houses << @house
