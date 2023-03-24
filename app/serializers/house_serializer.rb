@@ -1,3 +1,3 @@
 class HouseSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :description, :price, :image
 end
