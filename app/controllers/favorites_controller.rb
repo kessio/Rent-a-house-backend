@@ -1,7 +1,12 @@
 class FavoritesController < ApplicationController
 
     before_action :authenticate_user!
-    
+
+    def index
+        @favorites = current_user.favorites
+        render json: @favorites, each_serializer: FavoriteSerializer
+      end
+      
     def create
         @house = House.find(params[:house_id])
         current_user.favorite_houses << @house
