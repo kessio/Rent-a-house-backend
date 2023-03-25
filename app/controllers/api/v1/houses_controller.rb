@@ -27,6 +27,16 @@ class Api::V1::HousesController < ApplicationController
     end
   end
 
+  def destroy
+    house = House.find(params[:id])
+  
+    if house.destroy
+      render json: { status: 'success', message: 'House deleted successfully' }, status: :ok
+    else
+      render json: { status: 'error', message: 'Failed to delete house', errors: house.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def house_params
