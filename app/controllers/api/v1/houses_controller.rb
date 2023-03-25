@@ -11,7 +11,12 @@ class Api::V1::HousesController < ApplicationController
         house = House.new(house_params)
 
         if house.save
+          house.image.attach(params[:house][:image])
+          if house.image.attached?
           render json: { status: 'success', message: 'House created successfully', data: HouseSerializer.new(house) }, status: :created
+          else
+            render json: { status: 'error', message: 'Failed to attach image to house', errors: 'Image is not attached' }, status: :unprocessable_entity
+          end
         else
           render json: { status: 'error', message: 'Failed to create house', errors: house.errors.full_messages }, status: :unprocessable_entity
         end
@@ -23,6 +28,6 @@ class Api::V1::HousesController < ApplicationController
       private
     
       def house_params
-        params.require(:house).permit(:title, :description, :price, :image).merge(user_id: current_user.id)
+        params.require(:house).permit(:title, :description, :price).merge(user_id: current_user.id)
       end
 end
