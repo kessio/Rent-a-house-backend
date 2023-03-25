@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       resources :users, only: [:index] 
-      resources :houses, only: [:index, :create, :destroy]
+      resources :houses, only: [:index, :create, :destroy, :show]
       end
     end
   
