@@ -8,7 +8,7 @@ class Api::V1::HousesController < ApplicationController
 
     def create
       if current_user
-        @house = House.new(house_params)
+        house = House.new(house_params)
 
         if house.save
           render json: { status: 'success', message: 'House created successfully', data: HouseSerializer.new(house) }, status: :created
