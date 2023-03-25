@@ -10,6 +10,12 @@ class FavoritesController < ApplicationController
         render json: favorite.errors, status: :unprocessable_entity
       end
     end
+
+
+    def display_user_favorites
+      @favorites = Favorite.where(user_id: current_user.id).includes(:house)
+      render json: @favorites
+    end
     
     def create
         @house = House.find(params[:house_id])
