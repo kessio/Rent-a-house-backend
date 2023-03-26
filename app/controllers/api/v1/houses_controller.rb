@@ -27,19 +27,9 @@ class Api::V1::HousesController < ApplicationController
     end
   end
 
-  def show
-    if current_user
-      @houses = current_user.houses
-  
-      if @houses.empty?
-        render json: { status: 'success', message: 'You have not added any houses yet' }, status: :ok
-      else
-        render json: { status: 'success', data: HouseSerializer.new(@houses) }, status: :ok
-      end
-  
-    else
-      render json: { errors: 'You are not authorized to view this page.' }, status: :unauthorized
-    end
+  def houses
+    user = User.find(params[:id])
+    render json: user, serializer: UserSerialization
   end
 
   def destroy

@@ -5,4 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
+
+         has_many :houses
+
+         def image_url
+          Rails.application.routes.url_helpers.url_for(image) if image.attached?
+        end
 end
