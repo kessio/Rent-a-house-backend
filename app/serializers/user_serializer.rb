@@ -7,7 +7,7 @@ class UserSerializer < ActiveModel::Serializer
       {
         id: house.id,
         title: house.title,
-        image_url: house.image.attached? ? url_for(house.image) : nil,
+        image_url: house.image.attached? ? url_for(house.image) : nil
       }
     end
   end

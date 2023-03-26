@@ -15,8 +15,11 @@ class Api::V1::HousesController < ApplicationController
           render json: { status: 'success', message: 'House created successfully', data: HouseSerializer.new(house) },
                  status: :created
         else
-          render json: { status: 'error', message: 'Failed to attach image to house', errors: house.errors.full_messages },
-                 status: :unprocessable_entity
+          render json: {
+            status: 'error',
+            message: 'Failed to attach image to house',
+            errors: house.errors.full_messages
+          }, status: :unprocessable_entity
         end
       else
         render json: { status: 'error', message: 'Failed to create house', errors: house.errors.full_messages },
@@ -34,11 +37,12 @@ class Api::V1::HousesController < ApplicationController
 
   def destroy
     house = House.find(params[:id])
-  
+
     if house.destroy
       render json: { status: 'success', message: 'House deleted successfully' }, status: :ok
     else
-      render json: { status: 'error', message: 'Failed to delete house', errors: house.errors.full_messages }, status: :unprocessable_entity
+      render json: { status: 'error', message: 'Failed to delete house', errors: house.errors.full_messages },
+             status: :unprocessable_entity
     end
   end
 

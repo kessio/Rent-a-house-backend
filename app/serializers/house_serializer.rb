@@ -5,8 +5,8 @@ class HouseSerializer < ActiveModel::Serializer
   end
 
   def image_url
-    if object.image.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(object.image, only_path: true)
-    end
+    return unless object.image.attached?
+
+    Rails.application.routes.url_helpers.rails_blob_url(object.image, only_path: true)
   end
 end
