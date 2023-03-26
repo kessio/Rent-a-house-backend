@@ -3,4 +3,10 @@ class HouseSerializer < ActiveModel::Serializer
   def user_id
     object.user_id
   end
+
+  def image_url
+    if object.image.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(object.image, only_path: true)
+    end
+  end
 end

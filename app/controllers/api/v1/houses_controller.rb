@@ -15,7 +15,7 @@ class Api::V1::HousesController < ApplicationController
           render json: { status: 'success', message: 'House created successfully', data: HouseSerializer.new(house) },
                  status: :created
         else
-          render json: { status: 'error', message: 'Failed to attach image to house', errors: 'Image is not attached' },
+          render json: { status: 'error', message: 'Failed to attach image to house', errors: house.errors.full_messages },
                  status: :unprocessable_entity
         end
       else
