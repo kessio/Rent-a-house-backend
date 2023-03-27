@@ -17,6 +17,5 @@ class House < ApplicationRecord
   validates :image, presence: true
   validates :image, content_type: { in: %w[image/jpeg image/png image/gif image/webp],
                                     message: 'must be a valid image format' }
-  validates :image, size: { less_than: 5.megabytes,
-                            message: 'should be less than 5MB' }
+
 end
