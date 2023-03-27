@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :email, :houses
+  attributes :id, :email, :houses, :favorites
 
   def houses
     object.houses.map do |house|
@@ -8,6 +8,16 @@ class UserSerializer < ActiveModel::Serializer
         id: house.id,
         title: house.title,
         image_url: house.image.attached? ? url_for(house.image) : nil
+      }
+    end
+  end
+
+  def favorites
+    object.favorites.map do |favorite|
+      {
+        id: favorite.id,
+        user_id: favorite.user_id,
+        house_id: favorite.house_id
       }
     end
   end
