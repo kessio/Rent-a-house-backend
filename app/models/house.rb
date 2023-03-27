@@ -17,8 +17,10 @@ class House < ApplicationRecord
   validates :image, presence: true
 
   private
+
   def image_format_validation
     return unless image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/webp])
+
     image.purge_later
     errors.add(:image, 'must be a valid image format')
   end
@@ -27,6 +29,7 @@ class House < ApplicationRecord
 
   def image_size_validation
     return unless image.attached? && image.blob.byte_size > 5.megabytes
+
     image.purge_later
     errors.add(:image, 'should be less than 5MB')
   end
