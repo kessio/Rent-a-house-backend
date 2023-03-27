@@ -16,4 +16,14 @@ class House < ApplicationRecord
                               'must be a positive number' }
   validates :image, presence: true
 
+  private
+  def image_format_validation
+    return unless image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/webp])
+
+    image.purge_later
+    errors.add(:image, 'must be a valid image format')
+  end
+
+  validate :image_size_validation
+
 end
