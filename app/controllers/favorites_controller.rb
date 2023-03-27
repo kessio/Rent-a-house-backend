@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
 
     before_action :authenticate_user!
 
-    def add_to_favorites
+    def create
       favorite = Favorite.new(user_id: current_user.id, house_id: params[:house_id])
       if favorite.save
         render json: favorite, status: :created
@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
       end
     end
 
-    def display_user_favorites
+    def favorites
       @favorites = Favorite.where(user_id: current_user.id).includes(:house)
       render json: @favorites
     end
