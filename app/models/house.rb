@@ -26,4 +26,13 @@ class House < ApplicationRecord
 
   validate :image_size_validation
 
+
+  private
+  def image_size_validation
+    return unless image.attached? && image.blob.byte_size > 5.megabytes
+
+    image.purge_later
+    errors.add(:image, 'should be less than 5MB')
+  end
+
 end
