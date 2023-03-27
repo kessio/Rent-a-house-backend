@@ -10,12 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_132603) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-=======
 ActiveRecord::Schema[7.0].define(version: 2023_03_25_124907) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_124907) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
->>>>>>> 937d4b4a21b0ed57fcf5f58d0e80b60d245099dd
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "house_id", null: false
@@ -62,10 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_124907) do
     t.string "title"
     t.text "description"
     t.decimal "price"
-<<<<<<< HEAD
-    t.string "image"
-=======
->>>>>>> 937d4b4a21b0ed57fcf5f58d0e80b60d245099dd
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -86,11 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_124907) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
->>>>>>> 937d4b4a21b0ed57fcf5f58d0e80b60d245099dd
   add_foreign_key "favorites", "houses"
   add_foreign_key "favorites", "users"
   add_foreign_key "houses", "users"

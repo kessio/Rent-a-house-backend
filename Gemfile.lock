@@ -193,7 +193,7 @@ GEM
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.7)
+    tzinfo-data (1.2023.2)
       tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -217,10 +217,7 @@ DEPENDENCIES
   devise
   devise-jwt
   dotenv-rails
-<<<<<<< HEAD
-=======
   image_processing (~> 1.2)
->>>>>>> 937d4b4a21b0ed57fcf5f58d0e80b60d245099dd
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
