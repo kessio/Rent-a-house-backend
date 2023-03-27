@@ -3,7 +3,7 @@ class Api::V1::FavoritesController < ApplicationController
     before_action :authenticate_user!
 
     def create
-      favorite = Favorite.new(user_id: current_user.id, house_id: params[:house_id])
+      favorite = Favorite.new(favorite_params)
       if favorite.save
         render json: { status: 'success', message: 'Favorite created successfully', data: FavoriteSerializer.new(favorite) },
                  status: :created
@@ -13,8 +13,13 @@ class Api::V1::FavoritesController < ApplicationController
     end
 
     def favorites
-      @favorites = Favorite.where(user_id: current_user.id).includes(:house)
-      render json: @favorites
+      user = User.find(params[:id])
+      render json: user, serializer: UserSerialization
     end
 
+    private
+
+    def favorite_params
+      params.require(:favorite).permit(:house_id).merge(user_id: current_user.id)
+    end
 end
