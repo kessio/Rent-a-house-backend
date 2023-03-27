@@ -34,5 +34,4 @@ class House < ApplicationRecord
     image.purge_later
     errors.add(:image, 'should be less than 5MB')
   end
-
 end
