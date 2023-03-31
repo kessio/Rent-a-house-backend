@@ -2,7 +2,7 @@ class House < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
 
   validates :price, presence: { message: "can't be blank" }, numericality:
