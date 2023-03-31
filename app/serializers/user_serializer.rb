@@ -19,7 +19,8 @@ class UserSerializer < ActiveModel::Serializer
         id: favorite.id,
         user_id: favorite.user_id,
         house_id: favorite.house_id,
-        house_title: house.title
+        house_title: house.title,
+        image_url: house.image.attached? ? url_for(house.image) : nil
       }
     end
   end
