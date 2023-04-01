@@ -72,7 +72,7 @@
 
 - [API Documentation](https://documenter.getpostman.com/view/26409199/2s93RUvCF3)
 
-- ## [Front-End Link](https://github.com/samuelmoiwa/-Rent-a-house-frontend.git)
+- ## [Front-End Link](https://github.com/samuelmoiwa/rent-a-house-frontend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
