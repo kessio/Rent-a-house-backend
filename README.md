@@ -70,7 +70,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [API Documentation](https://documenter.getpostman.com/view/26409199/2s93RUvCF3)
 
 - ## [Front-End Link](https://github.com/samuelmoiwa/-Rent-a-house-frontend.git)
 
