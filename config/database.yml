@@ -87,3 +87,4 @@ production:
   database: Rent_a_house_backend_production
   username: Rent_a_house_backend
   password: <%= ENV["RENT_A_HOUSE_BACKEND_DATABASE_PASSWORD"] %>
+   url: <%= ENV['DATABASE_URL'] %>
