@@ -104,10 +104,13 @@ Install this project with:
 
 To run the project, execute the following command:
 
-
 ```sh
-  ./bin/dev
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails s
 ```
+> This will run your rails server for the backend, next use the front-end repo instructions to install and run the front-end.
 
 ### Run tests
 
