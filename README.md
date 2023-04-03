@@ -61,12 +61,8 @@
 - **Login Functionality**
 - **Navigation panel with links to houses, my favourite, add house, delete house**
 - **Main page to see list of houses**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-- [API Documentation](https://documenter.getpostman.com/view/26409199/2s93RUvCF3)
-
 - [Front-End Link](https://github.com/samuelmoiwa/rent-a-house-frontend)
+- [API Documentation](https://documenter.getpostman.com/view/26409199/2s93RUvCF3)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
