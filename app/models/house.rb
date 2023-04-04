@@ -5,9 +5,8 @@ class House < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
 
-  validates :price, presence: { message: "can't be blank" }, numericality:
-                              { greater_than_or_equal_to: 0, message:
-                              'must be a positive number' }
+  validates :title, presence: { message: "can't be blank" }
+                             
   validates :description, presence: { message: "can't be blank" }, length:
                                     { minimum: 10, maximum: 500, message:
                                     'must be between 10 and 500 characters' }
