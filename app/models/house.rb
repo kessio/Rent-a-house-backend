@@ -6,7 +6,7 @@ class House < ApplicationRecord
   has_many :users, through: :favorites
 
   validates :title, presence: { message: "can't be blank" }
-                             
+
   validates :description, presence: { message: "can't be blank" }, length:
                                     { minimum: 10, maximum: 500, message:
                                     'must be between 10 and 500 characters' }
