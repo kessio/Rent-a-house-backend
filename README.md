@@ -188,7 +188,7 @@ If you like this project leave a star on this repository
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I give credit to [Alexey Savitskiy on Behance.](https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App) who's design was used in the creation of this project
+I give credit to [Alexey Savitskiy on Behance.](https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)) who's design was used in the creation of this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
