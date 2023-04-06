@@ -192,11 +192,14 @@ I give credit to [Alexey Savitskiy on Behance.](https://www.behance.net/gallery/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+##License
+This project is MIT Licensed
+[![license]](https://github.com/kessio/Rent-a-house-backend/blob/main/LICENSE)
+
+
 <!-- FAQ (optional) -->
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
 - **What is the difference between using rake and rails?**
 
